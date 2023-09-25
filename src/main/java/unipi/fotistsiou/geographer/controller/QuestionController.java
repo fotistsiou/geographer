@@ -14,6 +14,7 @@ import unipi.fotistsiou.geographer.entity.User;
 import unipi.fotistsiou.geographer.service.QuestionService;
 import unipi.fotistsiou.geographer.service.ResultService;
 import unipi.fotistsiou.geographer.service.UserService;
+
 import java.security.Principal;
 import java.util.Optional;
 
@@ -24,12 +25,6 @@ public class QuestionController {
     private final ResultService resultService;
     Boolean submitted = false;
 
-    @Autowired
-    Result result;
-    @ModelAttribute("result")
-    public Result getResult() {
-        return result;
-    }
     @Autowired
     public QuestionController (
         QuestionService questionService,
@@ -45,35 +40,35 @@ public class QuestionController {
     @PreAuthorize("isAuthenticated()")
     public String getQuiz (
         @PathVariable String chapter,
-        Model model,
-        Principal principal
+        Model model
     ){
-        String authUsername = "anonymousUser";
-        if (principal != null) {
-            authUsername = principal.getName();
-        }
-        Optional<User> optionalUser = userService.findOneByEmail(authUsername);
-        if (optionalUser.isPresent()) {
-            submitted = false;
-            result.setUser(optionalUser.get());
-            QuestionForm questionForm = questionService.getQuestionsByChapter(chapter);
-            model.addAttribute("questionForm", questionForm);
-            return "quiz";
-        }
-        return "404";
+        submitted = false;
+        QuestionForm questionForm = questionService.getQuestionsByChapter(chapter);
+        model.addAttribute("questionForm", questionForm);
+        return "quiz";
     }
 
     @PostMapping("/result/{chapter}")
     @PreAuthorize("isAuthenticated()")
-    public String submit (
+    public String submitQuiz (
         @PathVariable String chapter,
-        @ModelAttribute QuestionForm questionForm
+        @ModelAttribute QuestionForm questionForm,
+        Principal principal
     ){
         if(!submitted) {
-            result.setChapter(chapter);
-            result.setTotalCorrect(resultService.getResult(questionForm));
-            resultService.saveResult(result);
-            submitted = true;
+            String authUsername = "anonymousUser";
+            if (principal != null) {
+                authUsername = principal.getName();
+            }
+            Optional<User> optionalUser = userService.findOneByEmail(authUsername);
+            if (optionalUser.isPresent()) {
+                Result result = new Result();
+                result.setUser(optionalUser.get());
+                result.setChapter(chapter);
+                result.setTotalCorrect(resultService.getResult(questionForm));
+                resultService.saveResult(result);
+                submitted = true;
+            }
         }
         return "redirect:/";
     }

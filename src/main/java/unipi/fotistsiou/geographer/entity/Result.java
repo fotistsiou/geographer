@@ -1,10 +1,9 @@
 package unipi.fotistsiou.geographer.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.stereotype.Component;
 
-@Component
 @Setter
 @Getter
 @NoArgsConstructor
@@ -17,10 +16,12 @@ public class Result {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
+    @Column(name="chapter", nullable=false)
     private String chapter;
 
-    private int totalCorrect = 0;
+    @Column(name="total_correct", nullable=false)
+    private int totalCorrect;
 }

@@ -5,10 +5,8 @@ import org.springframework.stereotype.Service;
 import unipi.fotistsiou.geographer.entity.Question;
 import unipi.fotistsiou.geographer.entity.QuestionForm;
 import unipi.fotistsiou.geographer.repository.QuestionRepository;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class QuestionService {
