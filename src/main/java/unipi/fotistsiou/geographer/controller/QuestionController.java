@@ -14,7 +14,6 @@ import unipi.fotistsiou.geographer.entity.User;
 import unipi.fotistsiou.geographer.service.QuestionService;
 import unipi.fotistsiou.geographer.service.ResultService;
 import unipi.fotistsiou.geographer.service.UserService;
-
 import java.security.Principal;
 import java.util.Optional;
 

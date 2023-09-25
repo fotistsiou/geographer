@@ -30,6 +30,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/result/**").permitAll()
                         .requestMatchers("/account/**").permitAll()
+                        .requestMatchers("/chapter/**").permitAll()
                         .requestMatchers("/register/**").permitAll()
                         .anyRequest().authenticated()
                 )
