@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Geographer'"></title>
+    <link rel="stylesheet"
+          th:href="@{/css/main.css}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}" th:text="'Geographer |'"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col col-md-12">
+            <div class="custom_img_card">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center" th:text="'Ερωτηματολόγιο'"></h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" role="form" th:action="@{/result/proteuouses}" th:object="${questionForm}" method="POST">
+                            <div th:each="question, i: ${questionForm.questions}">
+                                <p class="title" th:text="${question.title}"></p>
+
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           th:id="|questions[${i.index}].choice|"
+                                           th:name="|questions[${i.index}].choice|"
+                                           type="radio"
+                                           th:value="1"
+                                    />
+                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionA}"></label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           th:id="|questions[${i.index}].choice|"
+                                           th:name="|questions[${i.index}].choice|"
+                                           type="radio"
+                                           th:value="2"
+                                    />
+                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionB}"></label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           th:id="|questions[${i.index}].choice|"
+                                           th:name="|questions[${i.index}].choice|"
+                                           type="radio"
+                                           th:value="3"
+                                    />
+                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionC}"></label>
+                                </div>
+
+                                <input type="hidden" th:name="|questions[${i.index}].id|" th:value="${question.id}" />
+                                <input type="hidden" th:name="|questions[${i.index}].title|" th:value="${question.title}" />
+                                <input type="hidden" th:name="|questions[${i.index}].chapter|" th:value="'proteuouses'" />
+                                <input type="hidden" th:name="|questions[${i.index}].answer|" th:value="${question.answer}" />
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <button class="btn btn-primary d-block mx-auto mt-4" type="submit" th:text="'Submit Answer'"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
