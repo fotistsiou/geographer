@@ -67,8 +67,10 @@ public class QuestionController {
                 result.setTotalCorrect(resultService.getResult(quiz));
                 resultService.saveResult(result);
                 submitted = true;
+                return String.format("redirect:/result/%d?success", result.getId());
             }
         }
         return "redirect:/";
+
     }
 }

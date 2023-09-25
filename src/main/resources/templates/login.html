@@ -21,40 +21,42 @@
     </nav>
 
     <div class="container">
-        <div class="col col-md-12">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger" th:text="'Μη έγκυρο email ή/και κωδικός.'"></div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-success" th:text="'Έχεις αποσυνδεθεί.'"></div>
-            </div>
-            <div th:if="${param.success_register}">
-                <div class="alert alert-info" th:text="'Έχεις εγγραφεί επιτυχώς στο Geographer! Συνδέσου για να εξερευνήσεις την εφαρμογή!'"></div>
-            </div>
-            <div class="custom_img_card">
-                <img th:src="@{/images/img3.png}"/>
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center" th:text="'Φόρμα Σύνδεσης'"></h3>
-                    </div>
-                    <div class="card-body">
-                        <form action="#" role="form" th:action="@{/login}" method="POST">
-                            <div class="mb-3">
-                                <label for="username" class="control-label" th:text="'Email'"></label>
-                                <input type="text" id="username" name="username" class="form-control"/>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="control-label" th:text="'Κωδικός'"></label>
-                                <input type="password" id="password" name="password" class="form-control"/>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary" th:text="'Σύνδεση'"></button>
-                            </div>
-                            <div class="mb-3">
-                                <span th:text="'Δεν έχεις λογαριασμό;'"></span>
-                                <a th:href="@{/register/student}" th:text="'Κανε εγγραφή εδώ'"></a>
-                            </div>
-                        </form>
+        <div class="row">
+            <div class="col col-md-12">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger" th:text="'Μη έγκυρο email ή/και κωδικός.'"></div>
+                </div>
+                <div th:if="${param.logout}">
+                    <div class="alert alert-success" th:text="'Έχεις αποσυνδεθεί.'"></div>
+                </div>
+                <div th:if="${param.success_register}">
+                    <div class="alert alert-info" th:text="'Έχεις εγγραφεί επιτυχώς στο Geographer! Συνδέσου για να εξερευνήσεις την εφαρμογή!'"></div>
+                </div>
+                <div class="custom_img_card">
+                    <img th:src="@{/images/img3.png}"/>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center" th:text="'Φόρμα Σύνδεσης'"></h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="#" role="form" th:action="@{/login}" method="POST">
+                                <div class="mb-3">
+                                    <label for="username" class="control-label" th:text="'Email'"></label>
+                                    <input type="text" id="username" name="username" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="control-label" th:text="'Κωδικός'"></label>
+                                    <input type="password" id="password" name="password" class="form-control"/>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary" th:text="'Σύνδεση'"></button>
+                                </div>
+                                <div class="mb-3">
+                                    <span th:text="'Δεν έχεις λογαριασμό;'"></span>
+                                    <a th:href="@{/register/student}" th:text="'Κανε εγγραφή εδώ'"></a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

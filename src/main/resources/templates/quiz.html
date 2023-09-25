@@ -11,7 +11,7 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="header">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}" th:text="'Geographer |'"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,54 +21,56 @@
     </nav>
 
     <div class="container">
-        <div class="col col-md-12">
-            <div class="custom_img_card">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="text-center" th:text="'Ερωτηματολόγιο'"></h2>
-                    </div>
-                    <div class="card-body">
-                        <form action="#" role="form" th:action="@{/quiz/proteuouses}" th:object="${quiz}" method="POST">
-                            <div th:each="question, i: ${quiz.questions}">
-                                <input type="hidden" th:name="|questions[${i.index}].id|" th:value="${question.id}" />
-                                <input type="hidden" th:name="|questions[${i.index}].title|" th:value="${question.title}" />
-                                <input type="hidden" th:name="|questions[${i.index}].chapter|" th:value="'proteuouses'" />
-                                <input type="hidden" th:name="|questions[${i.index}].answer|" th:value="${question.answer}" />
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="custom_img_card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-center" th:text="'Ερωτηματολόγιο'"></h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="#" role="form" th:action="@{/quiz/proteuouses}" th:object="${quiz}" method="POST">
+                                <div th:each="question, i: ${quiz.questions}">
+                                    <input type="hidden" th:name="|questions[${i.index}].id|" th:value="${question.id}" />
+                                    <input type="hidden" th:name="|questions[${i.index}].title|" th:value="${question.title}" />
+                                    <input type="hidden" th:name="|questions[${i.index}].chapter|" th:value="'proteuouses'" />
+                                    <input type="hidden" th:name="|questions[${i.index}].answer|" th:value="${question.answer}" />
 
-                                <p class="title" th:text="${question.title}"></p>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           th:id="|questions[${i.index}].choice|"
-                                           th:name="|questions[${i.index}].choice|"
-                                           type="radio"
-                                           th:value="1"
-                                    />
-                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionA}"></label>
+                                    <p class="title" th:text="${question.title}"></p>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               th:id="|questions[${i.index}].choice|"
+                                               th:name="|questions[${i.index}].choice|"
+                                               type="radio"
+                                               th:value="1"
+                                        />
+                                        <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionA}"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               th:id="|questions[${i.index}].choice|"
+                                               th:name="|questions[${i.index}].choice|"
+                                               type="radio"
+                                               th:value="2"
+                                        />
+                                        <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionB}"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               th:id="|questions[${i.index}].choice|"
+                                               th:name="|questions[${i.index}].choice|"
+                                               type="radio"
+                                               th:value="3"
+                                        />
+                                        <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionC}"></label>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           th:id="|questions[${i.index}].choice|"
-                                           th:name="|questions[${i.index}].choice|"
-                                           type="radio"
-                                           th:value="2"
-                                    />
-                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionB}"></label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           th:id="|questions[${i.index}].choice|"
-                                           th:name="|questions[${i.index}].choice|"
-                                           type="radio"
-                                           th:value="3"
-                                    />
-                                    <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionC}"></label>
-                                </div>
-                            </div>
 
-                            <div class="form-group mb-3">
-                                <button class="btn btn-primary d-block mx-auto mt-4" type="submit" th:text="'Submit Answer'"></button>
-                            </div>
-                        </form>
+                                <div class="form-group mb-3">
+                                    <button class="btn btn-primary d-block mx-auto mt-4" type="submit" th:text="'Submit Answer'"></button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

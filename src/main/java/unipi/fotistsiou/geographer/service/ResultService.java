@@ -7,6 +7,8 @@ import unipi.fotistsiou.geographer.entity.Quiz;
 import unipi.fotistsiou.geographer.entity.Result;
 import unipi.fotistsiou.geographer.repository.ResultRepository;
 
+import java.util.Optional;
+
 @Service
 public class ResultService {
     private final ResultRepository resultRepository;
@@ -16,6 +18,10 @@ public class ResultService {
         ResultRepository resultRepository
     ){
         this.resultRepository = resultRepository;
+    }
+
+    public Optional<Result> getResultById(Long id) {
+        return resultRepository.findById(id);
     }
 
     public int getResult(Quiz quiz) {
