@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import unipi.fotistsiou.geographer.entity.QuestionForm;
+import unipi.fotistsiou.geographer.entity.Quiz;
 import unipi.fotistsiou.geographer.entity.Result;
 import unipi.fotistsiou.geographer.entity.User;
 import unipi.fotistsiou.geographer.service.QuestionService;
@@ -43,16 +43,16 @@ public class QuestionController {
         Model model
     ){
         submitted = false;
-        QuestionForm questionForm = questionService.getQuestionsByChapter(chapter);
-        model.addAttribute("questionForm", questionForm);
+        Quiz quiz = questionService.getQuestionsByChapter(chapter);
+        model.addAttribute("quiz", quiz);
         return "quiz";
     }
 
-    @PostMapping("/result/{chapter}")
+    @PostMapping("/quiz/{chapter}")
     @PreAuthorize("isAuthenticated()")
     public String submitQuiz (
         @PathVariable String chapter,
-        @ModelAttribute QuestionForm questionForm,
+        @ModelAttribute Quiz quiz,
         Principal principal
     ){
         if(!submitted) {
@@ -65,7 +65,7 @@ public class QuestionController {
                 Result result = new Result();
                 result.setUser(optionalUser.get());
                 result.setChapter(chapter);
-                result.setTotalCorrect(resultService.getResult(questionForm));
+                result.setTotalCorrect(resultService.getResult(quiz));
                 resultService.saveResult(result);
                 submitted = true;
             }

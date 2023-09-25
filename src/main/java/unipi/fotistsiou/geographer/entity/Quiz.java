@@ -13,6 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Component
-public class QuestionForm {
+public class Quiz {
     private List<Question> questions;
 }

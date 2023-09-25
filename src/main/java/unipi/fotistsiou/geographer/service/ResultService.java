@@ -3,7 +3,7 @@ package unipi.fotistsiou.geographer.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import unipi.fotistsiou.geographer.entity.Question;
-import unipi.fotistsiou.geographer.entity.QuestionForm;
+import unipi.fotistsiou.geographer.entity.Quiz;
 import unipi.fotistsiou.geographer.entity.Result;
 import unipi.fotistsiou.geographer.repository.ResultRepository;
 
@@ -18,9 +18,9 @@ public class ResultService {
         this.resultRepository = resultRepository;
     }
 
-    public int getResult(QuestionForm questionForm) {
+    public int getResult(Quiz quiz) {
         int correct = 0;
-        for(Question answer: questionForm.getQuestions()) {
+        for(Question answer:quiz.getQuestions()) {
             if (answer.getAnswer() == answer.getChoice()) {
                 correct++;
             }
