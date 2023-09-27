@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import unipi.fotistsiou.geographer.entity.Result;
 import unipi.fotistsiou.geographer.service.ResultService;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Controller
@@ -26,11 +27,19 @@ public class ResultController {
     @PreAuthorize("isAuthenticated()")
     public String getResult(
             @PathVariable Long id,
-            Model model
+            Model model,
+            Principal principal
     ) {
+        String authUsername = "anonymousUser";
+        if (principal != null) {
+            authUsername = principal.getName();
+        }
         Optional<Result> optionalResult = resultService.getResultById(id);
         if (optionalResult.isPresent()) {
             Result result = optionalResult.get();
+            if (!result.getUser().getEmail().equals(authUsername)) {
+                return "404";
+            }
             model.addAttribute("result", result);
             return "result";
         } else {
