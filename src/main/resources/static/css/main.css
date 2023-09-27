@@ -31,9 +31,20 @@
 .custom_img_card_col {
     flex-direction: column;
 }
+.card-header {
+    text-align: center;
+}
+.card-body {
+    text-align: justify;
+}
+
 .custom_img_card img,
 .custom_img_card_col img {
     width: 20rem;
+}
+.custom_img_card img.big_img {
+    margin: 0 7.5rem;
+    width: 50rem;
 }
 
 .quiz_form {
@@ -75,11 +86,16 @@
     width: 100%;
 }
 
+h2,
 h3 {
+    text-align: center;
+}
+h4 {
     text-align: justify;
 }
 
-ul.list-group {
+ul.list-group,
+div.list-group {
     margin: auto;
 }
 

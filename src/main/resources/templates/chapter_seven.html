@@ -17,13 +17,67 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/one}" th:text="'Κεφάλαιο 1'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/two}" th:text="'Κεφάλαιο 2'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/three}" th:text="'Κεφάλαιο 3'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/four}" th:text="'Κεφάλαιο 4'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/five}" th:text="'Κεφάλαιο 5'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/six}" th:text="'Κεφάλαιο 6'"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <div class="container">
         <div class="row">
-            <div class="col col-md-8">
-                <h2 th:text="'Κεφάλαιο 7'"></h2>
+            <div class="col col-md-10">
+                <div class="custom_img_card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 th:text="'Κεφάλαιο 7: Τα κράτη της Ωκεανίας'"></h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Η Ελλάδα έχει 51 νομούς. Η διοίκηση, δηλαδή ο νομάρχης, το νομαρχιακό συμβούλιο και το
+                                νομαρχιακό ταμείο, εδρεύει στην πρωτεύουσα του νομού, όπου βρίσκονται και οι νομαρχιακές
+                                υπηρεσίες. Σκοπός της νομαρχιακής αυτοδιοίκησης είναι να συντηρεί και να εκτελεί δημόσια
+                                και κοινωφελή έργα, καθώς επίσης να συντηρεί και να διαχειρίζεται κρατικά κτίρια,
+                                μηχανήματα και αυτοκίνητα. Το νομαρχιακό συμβούλιο σχεδιάζει τα προγράμματα για τα
+                                δημόσια έργα.
+                            </p>
+                            <p>
+                                Η πρωτεύουσα είναι συνήθως η μεγαλύτερη πόλη και σ' αυτήν βρίσκονται το νοσοκομείο,
+                                η αστυνομία, η πυροσβεστική και οι δικαστικές αρχές. Στην πρωτεύουσα παρατηρείται η
+                                μεγαλύτερη εμπορική κίνηση του νομού.
+                            </p>
+                            <p>
+                                Σε κάθε νομό, εκτός από την πρωτεύουσα, υπάρχουν και άλλες μεγάλες πόλεις, οι οποίες
+                                παρουσιάζουν τουριστικό και εμπορικό ενδιαφέρον. Μερικές από αυτές είναι το Γύθειο, το
+                                Αγρίνιο, το Άργος, η Θήβα κ.ά. Μικρότερες αλλά με μεγάλη σπουδαιότητα είναι η Ορεστιάδα,
+                                η Σαμοθράκη, η Πτολεμαΐδα, η Καλαμπάκα, οι Δελφοί, η Ολυμπία, η Επίδαυρος κ.ά.
+                            </p>
+                            <p>
+                                Μελετήστε προσεκτικά την παρακάτω εικόνα με τα γεωγραφικά διαμερίσματα, τους νομούς
+                                και τις πρωτεύουσες της Ελλάδας:
+                            </p>
+                            <img class="big_img" th:src="@{/images/img17.png}"/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
