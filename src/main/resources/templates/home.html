@@ -22,7 +22,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col col-md-8 offset-md-2">
+            <div class="col col-md-8">
                 <div class="custom_img_card">
                     <img th:src="@{/images/img1.png}"/>
                     <div class="card">
@@ -53,13 +53,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-md-8 offset-md-2" sec:authorize="!isAuthenticated()">
+            <div class="col col-md-8" sec:authorize="!isAuthenticated()">
                 <h3>
                     Κάνε γρήγορα την εγγραφή/σύνδεση σου στο Geographer και ξεκίνα την πιο διασκεδαστική επανάληψη στα
                     παρακάτω κεφάλαια της Γεωγραφίας Ε' και ΣΤ' δημοτικού!
                 </h3>
-                <ul class="list-group col-md-6 offset-md-3 text-center">
-                    <li class="list-group-item list-group-item-primary">1. Οι νομοί της Ελλάδας</li>
+                <ul class="list-group col-md-6 text-center">
+                    <li class="list-group-item list-group-item-primary">1. Οι νομοί και οι πρωτεύουσες της Ελλάδας</li>
                     <li class="list-group-item list-group-item-success">2. Τα κράτη της Ευρώπης</li>
                     <li class="list-group-item list-group-item-danger">3. Τα κράτη της Ασίας</li>
                     <li class="list-group-item list-group-item-info">4. Τα κράτη της Αφρικής</li>
@@ -68,7 +68,7 @@
                     <li class="list-group-item list-group-item-default">7. Τα κράτη της Ωκεανίας</li>
                 </ul>
             </div>
-            <div class="col col-md-8 offset-md-2" sec:authorize="isAuthenticated()">
+            <div class="col col-md-8" sec:authorize="isAuthenticated()">
                 <h3>
                     Το ταξίδι ξεκινα! Επίλεξε ένα απο τα παρακάτω κεφάλαια της Γεωγραφίας Ε' και ΣΤ' δημοτικού και ξεκίνα
                     την πιο διασκεδαστική επανάληψη!

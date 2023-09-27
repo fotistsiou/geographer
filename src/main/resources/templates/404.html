@@ -22,16 +22,25 @@
 
     <div class="container">
         <div class="row">
-            <div class="col col-md-12">
-                <h1 class="text-center" th:text="'Geographer'"></h1>
-                <h2 class="text-center" th:text="'Λυπούμαστε, η σελίδα δεν βρέθηκε...'"></h2>
-                <p class="text-center">
-                    <button class="btn btn-dark" type="button">
-                        <a class="a_button" th:href="@{/}" th:text="'Επιστροφή στην αρχική!'"></a>
-                    </button>
-                </p>
+            <div class="col col-md-8">
+                <div class="custom_img_card_col">
+                    <img th:src="@{/images/img5.png}"/>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-center" th:text="'Geographer'"></h2>
+                            <h4 class="text-center" th:text="'Λυπούμαστε, η σελίδα δεν βρέθηκε...'"></h4>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-dark" type="button">
+                                <a class="a_button" th:href="@{/}" th:text="'Επιστροφή στην αρχική!'"></a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
+

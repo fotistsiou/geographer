@@ -21,12 +21,11 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col col-md-12">
+            <div class="col col-md-8">
                 <div th:if="${param.success}">
-                    <div class="alert alert-success" th:text="'Συγχαρητήρια για την υποβολή των απαντήσεών σου!'"></div>
+                    <div class="alert alert-success" th:text="'Οι απαντήσεις σου υποβλήθηκαν με επιτυχία!'"></div>
                 </div>
                 <div class="custom_img_card">
-                    <img th:src="@{/images/img2.png}"/>
                     <div class="card">
                         <div class="card-header">
                             <h2 class="text-center" th:text="'Το σκορ σου!'"></h2>
@@ -34,20 +33,49 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th th:text="'Όνομα:'"></th>
-                                    <td th:if="${result}" th:text="${result.user.firstName}"></td>
-                                </tr>
-                                <tr>
-                                    <th th:text="'Σωστές Απαντήσεις:'"></th>
+                                    <th th:text="'Σωστές απαντήσεις:'"></th>
                                     <td th:if="${result}" th:text="${result.totalCorrect}"></td>
                                 </tr>
                                 <tr>
-                                    <th th:text="'Λαθος Απαντήσεις:'"></th>
-                                    <td th:if="${result}" th:text="2 - ${result.totalCorrect}"></td>
+                                    <th th:text="'Λάθος απαντήσεις:'"></th>
+                                    <td th:if="${result}" th:text="5 - ${result.totalCorrect}"></td>
                                 </tr>
                             </table>
+                            <div class="result_comment">
+                                <p
+                                    class="bg-success text-white"
+                                    th:if="${result != null && result.totalCorrect == 5}"
+                                    th:text="'Τα πήγες τέλεια!'">
+                                </p>
+                                <p
+                                    class="bg-success text-white"
+                                    th:if="${result != null && result.totalCorrect == 4}"
+                                    th:text="'Τα πήγες σχεδόν τέλεια!'">
+                                </p>
+                                <p
+                                    class="bg-info text-white"
+                                    th:if="${result != null && result.totalCorrect == 3}"
+                                    th:text="'Τα πήγες πολύ καλά!'">
+                                </p>
+                                <p
+                                    class="bg-warning text-dark"
+                                    th:if="${result != null && result.totalCorrect == 2}"
+                                    th:text="'Τα πήγες καλά!'">
+                                </p>
+                                <p
+                                    class="bg-danger text-white"
+                                    th:if="${result != null && result.totalCorrect == 1}"
+                                    th:text="'Τα πήγες μέτρια!'">
+                                </p>
+                                <p
+                                    class="bg-danger text-white"
+                                    th:if="${result != null && result.totalCorrect == 0}"
+                                    th:text="'Μπορείς και καλύτερα!'">
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    <img th:src="@{/images/img10.png}"/>
                 </div>
             </div>
         </div>
