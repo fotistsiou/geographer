@@ -60,7 +60,7 @@ CREATE TABLE `result` (
   PRIMARY KEY (`id`),
   KEY `FKpjjrrf0483ih2cvyfmx70a16b` (`user_id`),
   CONSTRAINT `FKpjjrrf0483ih2cvyfmx70a16b` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `result` (
 
 LOCK TABLES `result` WRITE;
 /*!40000 ALTER TABLE `result` DISABLE KEYS */;
-INSERT INTO `result` VALUES (12,'proteuouses',5,1),(13,'proteuouses',4,1),(14,'proteuouses',3,1),(15,'proteuouses',2,1),(16,'proteuouses',1,1),(17,'proteuouses',0,1);
+INSERT INTO `result` VALUES (1,'proteuouses',5,1),(2,'proteuouses',4,1),(3,'proteuouses',3,1),(4,'proteuouses',2,1),(5,'proteuouses',1,1),(6,'proteuouses',0,1);
 /*!40000 ALTER TABLE `result` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +122,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'fotis.tsioumas@outlook.com','Φώτης','Τσιούμας','$2a$10$1uPpDrfl3md8njgI2b8FAuEbtG2CPJz2uXJtTpQkBvc0l5irSsw0S'),(2,'aspa.sideri@outlook.com','Άσπα','Σιδέρη','$2a$10$Ug/ozex7MprpXGFouT9vBejIyMjfhPtAwbJFiejAb.Mccdeg25tMe'),(3,'rafahlia.tsioumas@outlook.com','Ραφαηλία','Τσιούμα','$2a$10$AHaaKa.T1NmOih7pi5SDBOw/XL0.ayzYp7eVwjjGBYzlVSStSdsAa');
+INSERT INTO `user` VALUES (1,'fotis.tsioumas@outlook.com','Φώτης','Τσιούμας','$2a$10$I.V0oN7cslZEnAu1VbN4Z.8RySrFlcgdA74RSaYuTW7.Yek9scZRm'),(2,'aspa.sideri@outlook.com','Άσπα','Σιδέρη','$2a$10$I.V0oN7cslZEnAu1VbN4Z.8RySrFlcgdA74RSaYuTW7.Yek9scZRm'),(3,'rafahlia.tsioumas@outlook.com','Ραφαηλία','Τσιούμα','$2a$10$I.V0oN7cslZEnAu1VbN4Z.8RySrFlcgdA74RSaYuTW7.Yek9scZRm');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (2,1),(3,1);
+INSERT INTO `user_roles` VALUES (1,1),(2,1),(3,1);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-28  0:28:06
+-- Dump completed on 2023-09-28  0:53:37
