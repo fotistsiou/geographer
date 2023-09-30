@@ -44,7 +44,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col col-md-8">
+            <div class="col col-md-10">
                 <div th:if="${param.success}">
                     <div class="alert alert-success" th:text="'Οι απαντήσεις σου υποβλήθηκαν με επιτυχία!'"></div>
                 </div>
@@ -71,29 +71,19 @@
                                     th:text="'Τα πήγες τέλεια!'">
                                 </p>
                                 <p
-                                    class="bg-success text-white"
-                                    th:if="${result != null && result.totalCorrect == 4}"
-                                    th:text="'Τα πήγες σχεδόν τέλεια!'">
-                                </p>
-                                <p
                                     class="bg-info text-white"
-                                    th:if="${result != null && result.totalCorrect == 3}"
-                                    th:text="'Τα πήγες πολύ καλά!'">
+                                    th:if="${result != null && result.totalCorrect == 4}"
+                                    th:text="'Τα πήγες σχεδόν τέλεια! Βρες το μοναδικό σου λάθος.'">
                                 </p>
                                 <p
                                     class="bg-warning text-dark"
-                                    th:if="${result != null && result.totalCorrect == 2}"
-                                    th:text="'Τα πήγες καλά!'">
+                                    th:if="${result != null && result.totalCorrect == 3}"
+                                    th:text="'Τα πήγες καλά! Προσπάθησε άλλο λίγο.'">
                                 </p>
                                 <p
                                     class="bg-danger text-white"
-                                    th:if="${result != null && result.totalCorrect == 1}"
-                                    th:text="'Τα πήγες μέτρια!'">
-                                </p>
-                                <p
-                                    class="bg-danger text-white"
-                                    th:if="${result != null && result.totalCorrect == 0}"
-                                    th:text="'Μπορείς και καλύτερα!'">
+                                    th:if="${result != null && (result.totalCorrect == 2 || result.totalCorrect == 1 || result.totalCorrect == 0)}"
+                                    th:text="'Πρέπει να προσπαθήσεις ξανά.'">
                                 </p>
                             </div>
                             <div class="form-group button">
@@ -102,7 +92,7 @@
                                 </button>
                             </div>
                             <div class="form-group button">
-                                <button class="btn btn-info" type="button">
+                                <button class="btn btn-primary" type="button">
                                     <a class="a_button" th:href="@{'/result/all/' + ${result.user.id}}" th:text="'Συνολικά Αποτελέσματα'"></a>
                                 </button>
                             </div>

@@ -44,7 +44,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col col-md-8">
+            <div class="col col-md-10">
                 <div class="custom_img_card_col">
                     <img th:src="@{/images/img9.png}"/>
                     <div class="card">
@@ -70,12 +70,26 @@
                                     <td th:if="${result.chapter == 'nhsia'}" th:text="'Κεφάλαιο 4'"></td>
                                     <td th:if="${result.chapter == 'vouna'}" th:text="'Κεφάλαιο 5'"></td>
                                     <td th:text="${result.totalCorrect + '/5'}"></td>
-                                    <td  th:if="${result.totalCorrect == 5}" th:text="'Τα πήγες τέλεια!'"></td>
-                                    <td  th:if="${result.totalCorrect == 4}" th:text="'Τα πήγες σχεδόν τέλεια!'"></td>
-                                    <td  th:if="${result.totalCorrect == 3}" th:text="'Τα πήγες πολύ καλά!'"></td>
-                                    <td  th:if="${result.totalCorrect == 2}" th:text="'Τα πήγες καλά!'"></td>
-                                    <td  th:if="${result.totalCorrect == 1}" th:text="'Τα πήγες μέτρια.'"></td>
-                                    <td  th:if="${result.totalCorrect == 0}" th:text="'Μπορείς και καλύτερα!'"></td>
+                                    <td
+                                        class="bg-success text-white"
+                                        th:if="${result.totalCorrect == 5}"
+                                        th:text="'Τα πήγες τέλεια!'">
+                                    </td>
+                                    <td
+                                        class="bg-info text-white"
+                                        th:if="${result.totalCorrect == 4}"
+                                        th:text="'Τα πήγες σχεδόν τέλεια! Βρες το μοναδικό σου λάθος.'">
+                                    </td>
+                                    <td
+                                        class="bg-warning text-dark"
+                                        th:if="${result.totalCorrect == 3}"
+                                        th:text="'Τα πήγες καλά! Προσπάθησε άλλο λίγο.'">
+                                    </td>
+                                    <td
+                                        class="bg-danger text-white"
+                                        th:if="${result.totalCorrect == 2 || result.totalCorrect == 1 || result.totalCorrect == 0}"
+                                        th:text="'Πρέπει να προσπαθήσεις ξανά.'">
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

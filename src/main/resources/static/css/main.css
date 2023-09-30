@@ -88,6 +88,10 @@
     font-weight: 600;
     width: 100%;
 }
+.result_comment p {
+    padding: 5px;
+    border-radius: 3px;
+}
 
 h2,
 h3 {
