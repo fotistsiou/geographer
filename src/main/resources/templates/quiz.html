@@ -55,11 +55,11 @@
                             <h3 th:text="'Ερωτηματολόγιο'"></h3>
                         </div>
                         <div class="card-body">
-                            <form action="#" role="form" th:action="@{/quiz/proteuouses}" th:object="${quiz}" method="POST">
+                            <form action="#" role="form" th:action="@{'/quiz/{chapter}'(chapter=${chapter})}" th:object="${quiz}" method="POST">
                                 <div class="quiz_form" th:each="question, i: ${quiz.questions}">
                                     <input type="hidden" th:name="|questions[${i.index}].id|" th:value="${question.id}" />
                                     <input type="hidden" th:name="|questions[${i.index}].title|" th:value="${question.title}" />
-                                    <input type="hidden" th:name="|questions[${i.index}].chapter|" th:value="'proteuouses'" />
+                                    <input type="hidden" th:name="|questions[${i.index}].chapter|" th:value="${question.chapter}" />
                                     <input type="hidden" th:name="|questions[${i.index}].answer|" th:value="${question.answer}" />
                                     <p class="title" th:text="${question.title}"></p>
                                     <div class="form-check">

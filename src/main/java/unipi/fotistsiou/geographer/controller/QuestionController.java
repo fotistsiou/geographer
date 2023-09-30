@@ -44,6 +44,7 @@ public class QuestionController {
         submitted = false;
         Quiz quiz = questionService.getQuestionsByChapter(chapter);
         model.addAttribute("quiz", quiz);
+        model.addAttribute("chapter", chapter);
         return "quiz";
     }
 
