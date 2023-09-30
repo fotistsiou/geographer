@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import unipi.fotistsiou.geographer.entity.User;
 import unipi.fotistsiou.geographer.service.UserService;
-
 import java.security.Principal;
 import java.util.Optional;
 
@@ -86,23 +85,13 @@ public class ChapterController {
         return "chapter_five";
     }
 
-    @GetMapping("/chapter/six")
+    @GetMapping("/chapter/quizzes")
     @PreAuthorize("isAuthenticated()")
-    public String getChapterSix(
-        Model model,
-        Principal principal
+    public String getChapterQuizzes(
+            Model model,
+            Principal principal
     ){
         AuthUser(model, principal);
-        return "chapter_six";
-    }
-
-    @GetMapping("/chapter/seven")
-    @PreAuthorize("isAuthenticated()")
-    public String getChapterSeven(
-        Model model,
-        Principal principal
-    ){
-        AuthUser(model, principal);
-        return "chapter_seven";
+        return "chapter_quizzes";
     }
 }

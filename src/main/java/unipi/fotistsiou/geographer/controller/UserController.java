@@ -29,7 +29,7 @@ public class UserController {
         if (principal != null) {
             authUsername = principal.getName();
         }
-        Optional<User> optionalUser = this.userService.getUserById(id);
+        Optional<User> optionalUser = userService.getUserById(id);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             if (!user.getEmail().equals(authUsername)) {

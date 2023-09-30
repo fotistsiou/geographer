@@ -17,6 +17,28 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/one}" th:text="'Κεφάλαιο 1'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/two}" th:text="'Κεφάλαιο 2'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/three}" th:text="'Κεφάλαιο 3'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/four}" th:text="'Κεφάλαιο 4'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/five}" th:text="'Κεφάλαιο 5'"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/chapter/quizzes}" th:text="'Quizzes'"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -25,8 +47,8 @@
             <div class="col col-md-12">
                 <div class="custom_img_card">
                     <div class="two_img">
-                        <img class="two_img_1" src="/images/img8.png">
-                        <img class="two_img_2" src="/images/img8.png">
+                        <img class="two_img_1" src="/images/img6.png">
+                        <img class="two_img_2" src="/images/img6.png">
                     </div>
                     <div class="card">
                         <div class="card-header">
@@ -68,15 +90,20 @@
                                         <label th:for="|questions[${i.index}].choice|" class="form-check-label" th:text="${question.optionC}"></label>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit" th:text="'Submit Answer'"></button>
+                                <div class="form-group button">
+                                    <button class="btn btn-primary" type="submit" th:text="'Υποβολή Απαντήσεων'"></button>
+                                </div>
+                                <div class="form-group button">
+                                    <button class="btn btn-danger" type="button">
+                                        <a class="a_button" th:href="@{'/chapter/quizzes'}" th:text="'Επιστροφή στα Quizzes'"></a>
+                                    </button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="two_img">
-                        <img class="two_img_3" src="/images/img8.png">
-                        <img class="two_img_4" src="/images/img8.png">
+                        <img class="two_img_3" src="/images/img6.png">
+                        <img class="two_img_4" src="/images/img6.png">
                     </div>
                 </div>
             </div>
